@@ -5,10 +5,11 @@ prompt: .asciiz "\nEnter a number >= 25: "
 Space: .asciiz" " 
 #error message
 error: .asciiz "\nIllegal number! Try again."
-.text
 
+.text
 main: 
 li $v0, 4
+
 #storing the prompt
 la $a0,prompt
 syscall
@@ -30,5 +31,14 @@ li $t2,0 #will be the sum of the first and second values
 
 #printing the first value of the sequence (0) 
 move $a0,$t0
+li $v0,1
+syscall
+
+#printing the space
+li $v0,4
+la $a0,Space
+syscall
+#printing the 1
+move $a0,$t1
 li $v0,1
 syscall
