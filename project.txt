@@ -68,3 +68,18 @@ addi $t4,$t4,1
 j loop 
 
 end:
+
+j exit
+
+#function if the user does not enter a legal value 
+illegal: 
+#printing error message to the screen
+li $v0,4
+la $a0, error
+syscall
+j main
+exit:
+#ending the code
+li $v0, 10
+syscall 
+.end main
