@@ -1,0 +1,8 @@
+.data 
+#text that will ask for the users input
+prompt: .asciiz "\nEnter a number >= 25: "
+#will be used to put a space between the values
+Space: .asciiz" " 
+#error message
+error: .asciiz "\nIllegal number! Try again."
+.text
