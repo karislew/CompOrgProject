@@ -22,7 +22,10 @@ move $t6, $v0
 #if t6 (the users entered input) is bigger than 25 the code is legal (run that function)
 bge $t6,25,legal
 #if not run the illgeal function
+j illegal
 
+legal:
+#in the function (label)
 #putting users entered input in t3 
 move $t3,$v0
 li $t0,0 #will be the first 
