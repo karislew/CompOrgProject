@@ -15,3 +15,12 @@ syscall
 #getting integer input
 li $v0, 5
 syscall
+
+#putting the user input in a temporary variable 
+move $t6, $v0
+#if t6 (the users entered input) is bigger than 25 the code is legal (run that function)
+bge $t6,25,legal
+#if not run the illgeal function
+
+#putting users entered input in t3 
+move $t3,$v0
