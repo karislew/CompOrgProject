@@ -6,3 +6,12 @@ Space: .asciiz" "
 #error message
 error: .asciiz "\nIllegal number! Try again."
 .text
+
+main: 
+li $v0, 4
+#storing the prompt
+la $a0,prompt
+syscall
+#getting integer input
+li $v0, 5
+syscall
