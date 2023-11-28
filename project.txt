@@ -42,3 +42,15 @@ syscall
 move $a0,$t1
 li $v0,1
 syscall
+
+loop:
+#getting the sum
+add $t2,$t1,$t0
+#space
+li $v0,4
+la $a0,Space
+syscall
+#printing the next value of sequence (which will be the sum)
+move $a0,$t2
+li $v0,1
+syscall
