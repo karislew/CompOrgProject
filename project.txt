@@ -54,3 +54,17 @@ syscall
 move $a0,$t2
 li $v0,1
 syscall
+
+#move the first variable to the next value 
+move $t0,$t1
+#move the second variable to the value of the sum
+move $t1,$t2
+#for t4 less than 25 
+slt $t5,$t4,$t3
+#if t5 is equal to zero end the loop
+beq $t5,$zero,end
+#else iterate with t4
+addi $t4,$t4,1
+j loop 
+
+end:
