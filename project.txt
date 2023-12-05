@@ -8,31 +8,42 @@ error: .asciiz "\nIllegal number! Try again."
 
 .text
 main: 
+#i first created the program in c++ so i am adding those comments for further clarification
 li $v0, 4
 
+#cout<<"enter a number >= 25"<<endl
 #storing the prompt
 la $a0,prompt
 syscall
+
+#int n
+#cin>>n 
 #getting integer input
 li $v0, 5
 syscall
+
 
 #putting the user input in a temporary variable 
 move $t6, $v0
 #if t6 (the users entered input) is bigger than 25 the code is legal (run that function)
 bge $t6,25,legal
 #if not run the illgeal function
+#while(n<25){} will go to the illegal label
 j illegal
 
 legal:
 #in the function (label)
 #putting users entered input in t3 
 move $t3,$v0
+#int first =0;
 li $t0,0 #will be the first 
+#int second=1;
 li $t1,1 #will be the second value 
+#int num=0;
 li $t2,0 #will be the sum of the first and second values 
 li $t4,2 #need to have the loop print out two less number (so start at 2)
 
+#cout<<first<<" ";
 #printing the first value of the sequence (0) 
 move $a0,$t0
 li $v0,1
@@ -42,26 +53,32 @@ syscall
 li $v0,4
 la $a0,Space
 syscall
+#cout<<second<<" ";
 #printing the 1
 move $a0,$t1
 li $v0,1
 syscall
 
+#for(int i=0;i<=n;i++){}
 loop:
 #getting the sum
+#sum=first+second
 add $t2,$t1,$t0
 #space
 li $v0,4
 la $a0,Space
 syscall
 #printing the next value of sequence (which will be the sum)
+#cout<<sum<<" ";
 move $a0,$t2
 li $v0,1
 syscall
 
+#first=second;
 #move the first variable to the next value 
 move $t0,$t1
 #move the second variable to the value of the sum
+#second=sum;
 move $t1,$t2
 #for t4 less than 25 
 slt $t5,$t4,$t3
